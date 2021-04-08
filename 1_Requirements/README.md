@@ -8,7 +8,7 @@ The calculator program is written in C language with proper testing cases and ma
 The basic calculator doesn't involve any  log operations or any operations related to finding interests. It is easy to apply  the values in the system to find the interest amounts rather than remembering and applying it in formula. Thus by studying all these facts, the necessary functions has been implemented to get the required results in a better way.
 
 ## Cost and Features
-As far as the project is well built and all the requirements met the cost cannot be determined.
+As far as the project is well built and all the requirements met the cost can be varied according to the market.
 ### Features
 
  - *Addition* : The addition (sum function) is used by choosing the "+" operand using the keyboard. The function results in a+b.
