@@ -52,20 +52,20 @@ System design is a solution for “HOW TO” approach to the creation of a new s
 
 |      ID          |Description                          |Status                         |
 |----------------|-------------------------------|-----------------------------|
-|714001|Operating System (Windows 10/Linux)       |Implemented            |
-|714002|C language            |Implemented|
-|714003|Pentium IV Processor  |Implemented|
-|714004|RAM(512MB)|Implemented|
-|714005|Hard Disk(2GB)|Implemented|
+|HR_01|Operating System (Windows 10/Linux)       |Implemented            |
+|HR_02|C language            |Implemented|
+|HR_03|Pentium IV Processor  |Implemented|
+|HR_04|RAM(512MB)|Implemented|
+|HR_05|Hard Disk(2GB)|Implemented|
 
 ## Low Level Requirements
 
 |      ID          |Description                          |Status                         |
 |----------------|-------------------------------|-----------------------------|
-|714101| Using Addition, Subtraction, Multiplication, Division functions        |Implemented            |
-|714102|Using functions to find simple and compound interests and total amount            |Implemented|
-|714103|Using functions to find factorial, power, log and exponential   |Implemented|
-|714104|Functions to find trigonometric operations |Future|
-|714105|Functions to display hex, octal, binary and ASCII of a decimal number |Future|
-|714106| Bitwise logical operations |Future|
+|LR_01| Using Addition, Subtraction, Multiplication, Division functions        |Implemented            |
+|LR_02|Using functions to find simple and compound interests and total amount            |Implemented|
+|LR_03|Using functions to find factorial, power, log and exponential   |Implemented|
+|LR_04|Functions to find trigonometric operations |Future|
+|LR_05|Functions to display hex, octal, binary and ASCII of a decimal number |Future|
+|LR_06| Bitwise logical operations |Future|
 
