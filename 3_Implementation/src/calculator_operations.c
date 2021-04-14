@@ -33,13 +33,13 @@ int divide(int operand1, int operand2)
         return operand1 / operand2;
 }
 
-double simple_interest(double principal_amount, double time_of_period, double rate_of_interest){
-    return (principal_amount*time_of_period*rate_of_interest)/100;
+double simple_interest(fin_opt* sim_opt){
+    return (sim_opt->principal_amount * sim_opt->time_of_period * sim_opt->rate_of_interest)/100;
 }
 
-double compound_interest(double principal_amount, double time_of_period, double rate_of_interest)
+double compound_interest(fin_opt* com_opt)
 {
-    return principal_amount * (pow((1 + rate_of_interest / 100), time_of_period));
+    return com_opt->principal_amount * (pow((1 + com_opt->rate_of_interest / 100), com_opt->time_of_period));
 }
 
 double total_amount(double principal_amount, double interest_amount){
