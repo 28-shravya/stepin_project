@@ -5,6 +5,8 @@
 #include <calculator_operations.h>
 #define PROJECT_NAME    "Calculator"
 
+static fin_opt c1 = {0, 0, 0};
+
 /* Prototypes for all the test functions */
 void test_add(void);
 void test_subtract(void);
@@ -95,16 +97,29 @@ void test_divide(void) {
 }
 
 void test_simple(void){
-  TEST_ASSERT_EQUAL(100,simple_interest(1000,2,5));
 
-  TEST_ASSERT_EQUAL(1100,simple_interest(10000,2,5.5));
+  c1.principal_amount = 1000;
+  c1.rate_of_interest = 2;
+  c1.time_of_period = 5;
+  TEST_ASSERT_EQUAL(100,simple_interest(&c1));
+
+  c1.principal_amount = 1100;
+  c1.rate_of_interest = 2;
+  c1.time_of_period = 5.5;
+  TEST_ASSERT_EQUAL(121,simple_interest(&c1));
 
 }
 
 void test_compound(void){
-  TEST_ASSERT_EQUAL(1040.4,compound_interest(1000,2,2));
+  c1.principal_amount = 1000;
+  c1.rate_of_interest = 2;
+  c1.time_of_period = 2;
+  TEST_ASSERT_EQUAL(1040.4,compound_interest(&c1));
   
-  TEST_ASSERT_EQUAL(16288.9,compound_interest(10000,5,10.25));
+  c1.principal_amount = 10000;
+  c1.rate_of_interest = 10.25;
+  c1.time_of_period = 5;
+  TEST_ASSERT_EQUAL(16288.9,compound_interest(&c1));
 }
 
 void test_total(void){
