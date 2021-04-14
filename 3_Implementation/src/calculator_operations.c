@@ -1,8 +1,11 @@
 #include <calculator_operations.h>
 
 int add(int operand1, int operand2)
-{
-    return operand1 + operand2;
+{   
+    int res = operand1 + operand2;
+    if (operand1 > 0 && operand2 > 0 && res < 0) return -1;
+    else if (operand1 < 0 && operand2 < 0 && res > 0) return -1;
+    else return res;
 }
 
 int subtract(int operand1, int operand2)
@@ -12,7 +15,14 @@ int subtract(int operand1, int operand2)
 
 int multiply(int operand1, int operand2)
 {
-    return operand1 * operand2;
+    int mul = operand1 * operand2;
+    if(operand1 ==0 || operand2==0)
+        return mul;
+    else if (operand1==mul/operand2)
+        return mul;
+    else 
+        return -1;
+    
 }
 
 int divide(int operand1, int operand2)
@@ -23,20 +33,20 @@ int divide(int operand1, int operand2)
         return operand1 / operand2;
 }
 
-float simple_interest(int principal_amount, int time_of_period, int rate_of_interest){
+double simple_interest(double principal_amount, double time_of_period, double rate_of_interest){
     return (principal_amount*time_of_period*rate_of_interest)/100;
 }
 
-float compound_interest(int principal_amount, int time_of_period, int rate_of_interest, int no_of_applied_interest)
+double compound_interest(double principal_amount, double time_of_period, double rate_of_interest)
 {
-    return principal_amount*((1+(rate_of_interest/no_of_applied_interest))^(time_of_period*no_of_applied_interest));
+    return principal_amount * (pow((1 + rate_of_interest / 100), time_of_period));
 }
 
-int total_amount(int principal_amount, int interest_amount){
+double total_amount(double principal_amount, double interest_amount){
     return principal_amount+interest_amount;
 }
 
-int fact(int operand1){
+double fact(int operand1){
     int i,f=1;
     if (operand1<1)
     {
@@ -45,17 +55,24 @@ int fact(int operand1){
     for(i=1;i<=operand1;i++){
     f=f*i;
     }
-    return f;
+    if(f<__DBL_MAX__)
+        return f;
+    else 
+        return -1;
 }
 
-int power(int operand1, int operand2){
+double power(double operand1, double operand2){
     return pow(operand1,operand2);
 }
 
-double logarithm(int operand1){
+double logarithm(double operand1){
+    if(operand1<0) return -1;
     return log10(operand1);
 }
 
-double exponential(int operand1){
-    return exp(operand1);
+double exponential(double operand1){
+    if(operand1>1000 || operand1<-1000) 
+        return -1;
+    else
+        return exp(operand1);
 }
