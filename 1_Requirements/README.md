@@ -16,7 +16,7 @@ As far as the project is well built and all the requirements met the cost can be
  - *Multiplication* : The multiplication (mul function) is used by choosing the "*" operand using the keyboard. The function results in a*b.
  - *Division* : The division (div function) is used by choosing the "/" operand using the keyboard. The function results in a/b.
  - *Simple Interest* : The simple interest (simple_interest function) is found by choosing "1". The function results in (p*t*r)/100. Where p is initial principal balance, r is rate of interest, t is number of time periods elapsed.
- - *Compound Interest* : The compound interest (compound_interest function) is found by choosing "2". The function results in p(1+(r/n))^nt. Where p is initial principal balance, r is rate of interest, n is number of times interest applied per time period and t is number of time periods elapsed.
+ - *Compound Interest* : The compound interest (compound_interest function) is found by choosing "2". The function results in p*(1+(r/100))^t. Where p is initial principal balance, r is rate of interest and t is number of time period.
  - *Total Amount* : The amount (total_amount function) is found by choosing "3". The function results in P+I. I is interest and P is principle
  - *Natural Exponential* :  The natural exponential (e raised to the x) is used by choosing "1" which results e^x or exp(). The result is e (2.71828...) raised to x. 
  - *Logarithm* : The logarithm (LOG) is used by choosing "2" which results LOG() where base is 10.
