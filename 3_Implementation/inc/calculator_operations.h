@@ -10,6 +10,17 @@
 #include <stdlib.h>
 #include<math.h>
 /**
+ * @brief Structure for the financial operations
+ * 
+ */
+typedef struct financial_operations
+{
+    double principal_amount;  /**< principal amount */
+    double rate_of_interest;    /**< rate of interest */
+    double time_of_period;  /**< time period */
+}fin_opt;
+
+/**
 *  adds the operand1 and operand2 and returns the result
 * @param[in] operand1 
 * @param[in] operand2 
@@ -44,22 +55,17 @@ int divide(int operand1, int operand2);
 
 /**
 * finds simple interest by formula and returns the result
-* @param[in] principal_amount 
-* @param[in] time_of_period 
-* @param[in] rate_of_interest
+8 @param[in] pointer to financial_operations structure 
 * @return float value of the (principal_amount*time_of_period*rate_of_interest)/100
 */
-double simple_interest(double principal_amount, double time_of_period, double rate_of_interest);
+double simple_interest(fin_opt* sim_opt);
 
 /**
 * finds compound interest by formula and returns the result
-* @param[in] principal_amount 
-* @param[in] time_of_period 
-* @param[in] rate_of_interest
-* @param[in] no_of_applied_interst
+* @param[in] pointer to financial_operations structure 
 * @return float value of the principal_amount*(1+(rate_of_interest/100))^time_of_period
 */
-double compound_interest(double principal_amount, double time_of_period, double rate_of_interest);
+double compound_interest(fin_opt* com_opt);
 
 /**
 * finds total amount by formula and returns the result
