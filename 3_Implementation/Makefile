@@ -33,7 +33,7 @@ DOCUMENTATION_OUTPUT = documentation/html
 $(PROJECT_NAME):all
 
 # Run the target even if the matching name exists
-.PHONY: run clean test doc all
+.PHONY: run clean test doc all coverage staticcheck codesize valgrind
 
 all: $(SRC) $(BUILD)
 	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
@@ -75,6 +75,7 @@ clean:
 	$(RM) *.gcov 
 	$(RM) *.gcda
 	$(RM) *.gcno
+	rm *.exe
 
 # Create new build folder if not present
 $(BUILD):
