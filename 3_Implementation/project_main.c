@@ -61,7 +61,7 @@ void calculator_menu(void)
    
         scanf("%d", &calculator_operation);
         financial_operations(calculator_operation);
-        break;/*
+        break;
     case 3:
         printf("\n\t---Welcome to Other Operations---\n");
         printf("\nAvailable Other Operations\n");
@@ -70,7 +70,7 @@ void calculator_menu(void)
    
         scanf("%d", &calculator_operation);
         other_operations(calculator_operation);
-        break;*/
+        break;
     case 4:
         printf("\nThank you. Exiting the Application\n");
         exit(0);
@@ -107,12 +107,12 @@ void financial_operations(int operation){
         printf("Enter the principle amount, rate of interest and time period to find simple interest\n");
         scanf("%lf %lf %lf", &c1.principal_amount, &c1.rate_of_interest, &c1.time_of_period);
         printf("The simple interest is %lf\n", simple_interest(&c1));
-    }/*
+    }
     else if(operation == 2){
         printf("Enter the principle amount, rate of interest and time period to find compound interest\n");
         scanf("%lf %lf %lf", &c1.principal_amount, &c1.rate_of_interest, &c1.time_of_period);
         printf("The compound interest is %lf\n", compound_interest(&c1));
-    }*/
+    }
     else if(operation == 3){
         printf("Enter the principle amount and interest amount to find total amount\n");
         scanf("%lf %lf", &operand1, &operand2);
@@ -126,7 +126,7 @@ void financial_operations(int operation){
         printf("\nEnter the valid option\n");
     }
 }
-/*
+
 void other_operations(int operation){
     int operand1;
     double calculator_operand1, calculator_operand2;
@@ -159,4 +159,4 @@ void other_operations(int operation){
         default:
             printf("\n\t---Enter the valid operation---\n");
     }
-}*/
+}
