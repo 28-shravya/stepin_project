@@ -47,11 +47,11 @@ double simple_interest(fin_opt* sim_opt){
     return (sim_opt->principal_amount * sim_opt->time_of_period * sim_opt->rate_of_interest)/100;
 }
 
-double compound_interest(fin_opt* com_opt)
+/*double compound_interest(fin_opt* com_opt)
 {
     double ans = pow((1 + com_opt->rate_of_interest / 100), com_opt->time_of_period);
     return com_opt->principal_amount * (ans);
-}
+}*/
 
 double total_amount(double principal_amount, double interest_amount){
     return principal_amount+interest_amount;
@@ -73,7 +73,7 @@ int fact(int operand1){
         return -1;
     }
 }
-
+/*
 double power(double operand1, double operand2){
     double result = pow(operand1,operand2);
     return result;
@@ -95,4 +95,4 @@ double exponential(double operand1){
     }
     double result = exp(operand1);
     return result;
-}
+}*/
