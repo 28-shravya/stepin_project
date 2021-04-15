@@ -11,16 +11,6 @@ unity/unity.c
 INC = -Iinc\
 -Iunity
 
-#Library Inlcudes
-#INCLUDE_LIBS = 
-INCLUDE_LIBS = -lcunit
-
-# The linker flags to use, none is okay.
-LDFLAGS = 
-
-# The libraries to link with.
-LDLIBS = -lm
-
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
    RM = del /q
@@ -38,13 +28,13 @@ endif
 .PHONY : all test coverage run clean doc staticcheck valgrind codesize
 
 all:$(BUILD_DIR)
-	gcc  project_main.c $(SRC) $(INC) -lm $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
+	gcc  project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC)) -lm
 
 run: all
 	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
 
 test: $(SRC) $(TEST_SRC)
-	gcc  $^ $(INC) -lm $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+	gcc  $^ $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC)) -lm
 	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
 
 coverage:${PROJECT_NAME}
