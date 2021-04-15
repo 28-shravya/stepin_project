@@ -11,6 +11,16 @@ unity/unity.c
 INC = -Iinc\
 -Iunity
 
+#Library Inlcudes
+#INCLUDE_LIBS = 
+INCLUDE_LIBS = -lcunit
+
+# The linker flags to use, none is okay.
+LDFLAGS = 
+
+# The libraries to link with.
+LDLIBS = -lm
+
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
    RM = del /q
