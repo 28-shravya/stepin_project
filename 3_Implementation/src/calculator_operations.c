@@ -3,8 +3,14 @@
 int add(int operand1, int operand2)
 {   
     int res = operand1 + operand2;
-    if (operand1 > 0 && operand2 > 0 && res < 0) return -1;
-    else if (operand1 < 0 && operand2 < 0 && res > 0) return -1;
+    if (operand1 > 0 && operand2 > 0 && res < 0) {
+        printf("Error, Result cannot be printed");
+        return -1;
+    }
+    else if (operand1 < 0 && operand2 < 0 && res > 0) {
+        printf("Error, Result cannot be printed");
+        return -1;
+    }
     else return res;
 }
 
@@ -20,14 +26,18 @@ int multiply(int operand1, int operand2)
         return mul;
     else if (operand1==mul/operand2)
         return mul;
-    else 
+    else {
+        printf("Error, Result cannot be printed");
         return -1;
+    }
 }
 
 int divide(int operand1, int operand2)
 {
-    if(0 == operand2)
+    if(0 == operand2){
+        printf("Error, Number cannot be divided by zero");
         return 0;
+    }
     else
         return operand1 / operand2;
 }
@@ -56,8 +66,10 @@ int fact(int operand1){
     }
     if(f<__DBL_MAX__)
         return f;
-    else 
+    else {
+        printf("Error, Result cannot be printed");
         return -1;
+    }
 }
 
 double power(double operand1, double operand2){
@@ -65,13 +77,18 @@ double power(double operand1, double operand2){
 }
 
 double logarithm(double operand1){
-    if(operand1<0) return -1;
+    if(operand1<0) {
+        printf("Error, number cannot be negative");
+        return -1;
+    }
     return log10(operand1);
 }
 
 double exponential(double operand1){
-    if(operand1>1000 || operand1<-1000) 
+    if(operand1>1000 || operand1<-1000){ 
+        printf("Error, Result cannot be printed");
         return -1;
+    }
     else
         return exp(operand1);
 }
