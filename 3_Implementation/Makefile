@@ -1,23 +1,15 @@
-# Name of the project
-PROJECT_NAME = Calculator
+PROJ_NAME = Calculator
+TEST_PROJ_NAME = Test_$(PROJ_NAME)
 
-# Output directory
-BUILD = build
+BUILD_DIR = Build
 
-# All source code files
-SRC = project_main.c\
-src/calculator_operations.c
+SRC = src/calculator_operations.c
 
-# All test source files
-TEST_SRC = src/calculator_operations.c\
-test/test_calculator_operations.c\
-unity/unity.c\
+TEST_SRC = test/test_calculator_operations.c\
+unity/unity.c
 
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).out
-
-# All include folders with header files
-INC	= -Iinc\
--Iunity\
+INC = -Iinc\
+-Iunity
 
 #To check if the OS is Windows or Linux and set the executable file extension and delete command accordingly
 ifdef OS
@@ -32,39 +24,19 @@ else
    endif
 endif
 
-#Library Inlcudes
-#INCLUDE_LIBS = 
-INCLUDE_LIBS = -lcunit
+# Makefile will not run target command if the name with file already exists. To override, use .PHONY
+.PHONY : all test coverage run clean doc staticcheck valgrind codesize
 
-# Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME).out
+all:$(BUILD_DIR)
+	gcc project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
 
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
+run: all
+	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
 
-# Default target built
-$(PROJECT_NAME):all
+test: $(SRC) $(TEST_SRC)
+	gcc $^ $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
 
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all coverage staticcheck codesize valgrind
-
-all: $(SRC) $(BUILD)
-	gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).out
-
-# Call `make run` to run the application
-run:$(PROJECT_NAME)
-	./$(PROJECT_OUTPUT).out
-
-# Document the code using Doxygen
-doc:
-	make -C ./documentation
-
-# Build and run the unit tests
-test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-
-# code coverage of the files in src
 coverage:${PROJECT_NAME}
 	gcc -fprofile-arcs -ftest-coverage $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
 	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
@@ -82,14 +54,12 @@ valgrind:
 codesize:
 	size $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
 
-# Remove all the built files and coverage files, invoke by `make clean`
-clean:
-	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
-	$(RM) *.gcov 
-	$(RM) *.gcda
-	$(RM) *.gcno
-	rm *.exe
+doc:
+	make -C doc
+$(BUILD_DIR):
+	mkdir $(BUILD_DIR)
 
-# Create new build folder if not present
-$(BUILD):
-	mkdir build
+clean:
+	$(RM) $(call FixPath,$(BUILD_DIR)/*)
+	make clean -C doc
+	rmdir $(BUILD_DIR) doc/html
