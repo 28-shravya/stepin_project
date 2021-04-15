@@ -25,10 +25,10 @@ else
 endif
 
 # Makefile will not run target command if the name with file already exists. To override, use .PHONY
-.PHONY : all test coverage run clean doc staticcheck valgrind codesize
+.PHONY : all test coverage run doc staticcheck valgrind codesize clean
 
 all:$(BUILD_DIR)
-	gcc  project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC)) 
+	gcc project_main.c $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC)) 
 
 run: all
 	$(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
