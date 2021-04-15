@@ -45,9 +45,9 @@ double total_amount(double principal_amount, double interest_amount){
     return principal_amount+interest_amount;
 }
 
-double fact(int operand1){
+int fact(int operand1){
     int i,f=1;
-    if (operand1<1)
+    if (operand1 < 1)
     {
         return 1;
     }
