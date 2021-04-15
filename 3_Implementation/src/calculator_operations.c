@@ -49,7 +49,8 @@ double simple_interest(fin_opt* sim_opt){
 
 double compound_interest(fin_opt* com_opt)
 {
-    return com_opt->principal_amount * (pow((1 + com_opt->rate_of_interest / 100), com_opt->time_of_period));
+    double ans = pow((1 + com_opt->rate_of_interest / 100), com_opt->time_of_period);
+    return com_opt->principal_amount * (ans);
 }
 
 double total_amount(double principal_amount, double interest_amount){
@@ -74,7 +75,8 @@ int fact(int operand1){
 }
 
 double power(double operand1, double operand2){
-    return pow(operand1,operand2);
+    double result = pow(operand1,operand2);
+    return result;
 }
 
 double logarithm(double operand1){
@@ -82,7 +84,8 @@ double logarithm(double operand1){
         printf("Error, number cannot be negative");
         return -1;
     }
-    return log10(operand1);
+    double result = log10(operand1);
+    return result;
 }
 
 double exponential(double operand1){
@@ -90,6 +93,6 @@ double exponential(double operand1){
         printf("Error, Result cannot be printed");
         return -1;
     }
-    else
-        return exp(operand1);
+    double result = exp(operand1);
+    return result;
 }
