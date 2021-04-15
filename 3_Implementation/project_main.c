@@ -10,19 +10,19 @@ unsigned int calculator_operation = 0;
 int calculator_operand1 = 0;
 int calculator_operand2 = 0;
 
+/* Function pointers for basic operations */
+int (*fnparr[4])(int, int); 
 /* Valid operations */
 enum operations{ FACTORIAL=1, LOGARITHM, EXPONENTIAL, POWER, EXIT };
-/* Function pointers for basic operations */
-int (*fnparr[4])(int, int);
 
 /* Display the menu of operations supported */
 void calculator_menu(void);
 /* Display the menu of basic operations supported */
-void basic_operation(int operation);
+void basic_operations(int operation);
 /* Display the menu of basic operations supported */
-void financial_operation(int operation);
+void financial_operations(int operation);
 /* Display the menu of basic operations supported */
-void other_operation(int operation);
+void other_operations(int operation);
 
 /* Start of the application */
 int main(int argc, char *argv[])
@@ -60,7 +60,7 @@ void calculator_menu(void)
         printf("\n\tEnter your choice\n");
    
         scanf("%d", &calculator_operation);
-        finacial_operations(calculator_operation);
+        financial_operations(calculator_operation);
         break;
     case 3:
         printf("\n\t---Welcome to Other Operations---\n");
@@ -71,31 +71,33 @@ void calculator_menu(void)
         scanf("%d", &calculator_operation);
         other_operations(calculator_operation);
         break;
-    case 5:
+    case 4:
         printf("\nThank you. Exiting the Application\n");
         exit(0);
-        break;
     default:
         printf("\n\t---Enter the valid operation mode---\n");
     }
 }
 
 void basic_operations(int operation){
-    fnparr[0] = add;
-    fnparr[1] = subtract;
-    fnparr[2] = multiply;
-    fnparr[3] = divide;
     if(calculator_operation == 5){
         printf("\nThank you. Exiting the Application\n");
         exit(0);  
     }
-    if (calculator_operation > 5 || calculator_operation < 0)
+    else if (calculator_operation > 5 || calculator_operation < 0)
     {
         printf("\nEnter the valid option\n");
     }
-    printf("Enter 2 numbers\n");
-    scanf("%d %d", &calculator_operand1, &calculator_operand2);
-    printf("The result of the chosen operations is %d\n", fnparr[calculator_operation]);
+    else {
+        printf("Enter 2 numbers\n");
+        scanf("%d %d", &calculator_operand1, &calculator_operand2);
+        fnparr[1] = add;
+        fnparr[2] = subtract;
+        fnparr[3] = multiply;
+        fnparr[4] = divide;
+        int result = (fnparr[calculator_operation])(calculator_operand1, calculator_operand2);
+        printf("The result of the chosen operations is %d\n", result);
+    }
 }
 
 void financial_operations(int operation){
@@ -133,7 +135,7 @@ void other_operations(int operation){
         case FACTORIAL:
             printf("Enter the integer for factorial function\n");
             scanf("%d", &operand1);
-            printf("The factorial of %d is %lf\n", operand1, fact(calculator_operand1));
+            printf("The factorial of %d is %d\n", operand1, fact(operand1));
             break;
         case LOGARITHM:
             printf("Enter the number for logarithm function of base 10\n");
