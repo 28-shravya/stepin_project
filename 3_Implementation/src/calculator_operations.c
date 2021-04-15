@@ -1,5 +1,5 @@
 #include <calculator_operations.h>
-#include<stdlib.h>
+#include "stdint.h"
 
 int add(int operand1, int operand2)
 {   
