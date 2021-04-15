@@ -48,8 +48,8 @@ doc:
 
 # Build and run the unit tests
 test:$(BUILD)
-	gcc src/calculator_operations.c test/test_calculator_operations.c unity/unity.c -I unity -I inc -o build/test.exe 
-	./test.exe
+	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
+	./$(TEST_OUTPUT)
 
 # code coverage of the files in src
 coverage:${PROJECT_NAME}
