@@ -22,7 +22,6 @@ int multiply(int operand1, int operand2)
         return mul;
     else 
         return -1;
-    
 }
 
 int divide(int operand1, int operand2)
