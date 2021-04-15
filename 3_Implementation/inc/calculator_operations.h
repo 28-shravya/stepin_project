@@ -80,7 +80,7 @@ double total_amount(double principal_amount, double interest_amount);
 * @param[in] operand1  
 * @return Result of operand1!
 */
-double fact(int operand1);
+int fact(int operand1);
 
 /**
 *  finds the operand1 to the power of operand2 and returns the result
