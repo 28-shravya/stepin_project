@@ -51,9 +51,30 @@ test:$(BUILD)
 	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
 	./$(TEST_OUTPUT)
 
-# Remove all the built files, invoke by `make clean`
+# code coverage of the files in src
+coverage:${PROJECT_NAME}
+	gcc -fprofile-arcs -ftest-coverage $(SRC) $(INC) -o $(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+	$(call FixPath,$(BUILD_DIR)/$(TEST_PROJ_NAME).$(EXEC))
+	gcov -a $(SRC)
+
+# Static analysis of the code
+staticcheck:
+	cppcheck --enable=all .
+
+# Dynamic analysis of the code
+valgrind:
+	valgrind ./test.$(EXEC)
+
+# size of the code
+codesize:
+	size $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).$(EXEC))
+
+# Remove all the built files and coverage files, invoke by `make clean`
 clean:
 	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT)
+	$(RM) *.gcov 
+	$(RM) *.gcda
+	$(RM) *.gcno
 
 # Create new build folder if not present
 $(BUILD):
