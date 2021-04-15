@@ -61,7 +61,7 @@ void calculator_menu(void)
    
         scanf("%d", &calculator_operation);
         financial_operations(calculator_operation);
-        break;
+        break;/*
     case 3:
         printf("\n\t---Welcome to Other Operations---\n");
         printf("\nAvailable Other Operations\n");
@@ -70,7 +70,7 @@ void calculator_menu(void)
    
         scanf("%d", &calculator_operation);
         other_operations(calculator_operation);
-        break;
+        break;*/
     case 4:
         printf("\nThank you. Exiting the Application\n");
         exit(0);
