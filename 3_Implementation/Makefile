@@ -1,5 +1,5 @@
 PROJ_NAME = Calculator
-TEST_PROJ_NAME = Test_$(PROJ_NAME)
+TEST_PROJ_NAME = Test_Calculator
 
 BUILD_DIR = Build
 
