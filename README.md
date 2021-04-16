@@ -6,5 +6,6 @@
 
 [![C/C++ CI - Build Status](https://github.com/28-shravya/stepin_project/actions/workflows/c_cpp.yml/badge.svg)](https://github.com/28-shravya/stepin_project/actions/workflows/c_cpp.yml)
 [![Code Quality - Static Code - Cppcheck](https://github.com/28-shravya/stepin_project/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/28-shravya/stepin_project/actions/workflows/cppcheck.yml)
+[![CI-Coverage](https://github.com/28-shravya/stepin_project/actions/workflows/gcov.yml/badge.svg)](https://github.com/28-shravya/stepin_project/actions/workflows/gcov.yml)
 [![Contribution Check - Git Inspector](https://github.com/28-shravya/stepin_project/actions/workflows/gitinspector.yml/badge.svg)](https://github.com/28-shravya/stepin_project/actions/workflows/gitinspector.yml)
 [![CI](https://github.com/28-shravya/stepin_project/actions/workflows/main.yml/badge.svg)](https://github.com/28-shravya/stepin_project/actions/workflows/main.yml)
