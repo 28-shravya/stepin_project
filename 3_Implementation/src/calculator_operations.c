@@ -66,7 +66,7 @@ int fact(int operand1){
     for(i=1;i<=operand1;i++){
     f=f*i;
     }
-    if(f<__DBL_MAX__)
+    if(f<__INT_MAX__ && f>0)
         return f;
     else {
         printf("Error, Result cannot be printed");
