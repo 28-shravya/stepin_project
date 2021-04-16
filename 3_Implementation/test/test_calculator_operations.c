@@ -135,7 +135,7 @@ void test_fact(void){
 
   TEST_ASSERT_EQUAL(1,fact(-5));
 
-  TEST_ASSERT_EQUAL(2432902008176640000,fact(20));
+  TEST_ASSERT_EQUAL(-1,fact(20));
 
 }
 
